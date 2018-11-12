@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # minimalistic client example from 
 # https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart
 
