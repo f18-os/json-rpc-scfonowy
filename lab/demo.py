@@ -1,4 +1,4 @@
-from node import *
+from lib.node import Node, NodeEncoder, NodeDecoder
 from json import loads, dumps
 
 leaf1 = Node("leaf1")
