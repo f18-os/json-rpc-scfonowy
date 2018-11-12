@@ -1,6 +1,7 @@
 # minimalistic client example from 
 # https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart
 
+### NOTE: Connection/socket code mostly as provided. Added code to serve as a demo for graph incrementing.
 import socket
 from lib.graph import Graph, GraphEncoder, GraphDecoder
 from json import loads, dumps

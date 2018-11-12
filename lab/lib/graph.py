@@ -1,9 +1,14 @@
 from lib.node import Node
 from json import JSONDecoder, JSONEncoder
 
+### 
+#   Graph class that serves as a collection of nodes, largely to enforce
+#   that no graph should have more than one node with a name (i.e. in each graph
+#   a node's name uniquely identifies either one node or no nodes.)
+###
 class Graph:
     def __init__(self, root = None):
-        self.nodes = {}
+        self.nodes = {} # used to prevent duplicate node names + for easy serialization
     
     def add_node(self, node_name, children = None):
         if node_name in self.nodes:
@@ -22,7 +27,13 @@ class Graph:
             json_arr.append({"name" : name, "val" : node.val, "children" : [c.name for c in node.children]})
 
         return json_arr
+    
+    def increment(self):
+        self.nodes["root"].increment()
 
+###
+#   JSON encoding class for Graphs.
+###
 class GraphEncoder(JSONEncoder):
     def default(self, obj):
         if (isinstance(obj, Graph)):
@@ -31,6 +42,9 @@ class GraphEncoder(JSONEncoder):
         else:
             return JSONEncoder.default(self, obj)
 
+###
+#  JSON decoding class for Graphs.
+###
 class GraphDecoder(JSONDecoder):
     def __init__(self, *args, **kwargs):
         JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
@@ -52,6 +66,7 @@ class GraphDecoder(JSONDecoder):
             
         return obj
 
+### Some custom exceptions, to feel fancy when we mess up.
 class GraphMissingRootError(Exception):
     pass
 

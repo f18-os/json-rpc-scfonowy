@@ -1,6 +1,7 @@
 # minimalistic server example from 
 # https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart
 
+### NOTE: Code mostly as provided. Only changed what function the ServerServices class exports.
 import socket
 from lib.graph import Graph, GraphEncoder, GraphDecoder
 from json import loads, dumps
@@ -19,7 +20,7 @@ class ServerServices(object):
   def increment(self, obj):
     encoder = GraphEncoder()
     graph = loads(obj, cls=GraphDecoder)
-    graph.nodes["root"].increment()
+    graph.increment()
     return dumps(encoder.default(graph))
 
 # Quick-and-dirty TCP Server:
