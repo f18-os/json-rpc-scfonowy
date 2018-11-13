@@ -19,7 +19,7 @@ To run the lab, simply download or clone the repository and run the server scrip
 
 Then, start any number of clients in a similar fashion:
 
-`python3 lab/client.py` or `./lab/server.py`
+`python3 lab/client.py` or `./lab/client.py`
 
 ## References
 Much of the code for setting up the RPC server and client was provided by Dr. Freudenthal.
