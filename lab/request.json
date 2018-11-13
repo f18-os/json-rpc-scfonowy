@@ -1,0 +1,32 @@
+{
+    "id":1,
+    "jsonrpc":"2.0",
+    "method":"increment",
+    "params":[
+        {
+            "graph":[
+                {
+                    "children":[
+                    ],
+                    "name":"leaf1",
+                    "val":0
+                },
+                {
+                    "children":[
+                    ],
+                    "name":"leaf2",
+                    "val":0
+                },
+                {
+                    "children":[
+                        "leaf1",
+                        "leaf2",
+                        "leaf1"
+                    ],
+                    "name":"root",
+                    "val":0
+                }
+            ]
+        }
+    ]
+}

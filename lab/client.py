@@ -27,10 +27,10 @@ graph.add_node("root", [graph.nodes["leaf1"], graph.nodes["leaf2"], graph.nodes[
 encoder = GraphEncoder()
 
 # Execute in server:
-result = loads(server.increment(dumps(encoder.default(graph))), cls=GraphDecoder)
+result = loads(server.increment(encoder.default(graph)), cls=GraphDecoder)
 result.nodes["root"].show()
 
-result = loads(server.increment(dumps(encoder.default(result))), cls=GraphDecoder)
+result = loads(server.increment(encoder.default(result)), cls=GraphDecoder)
 result.nodes["root"].show()
 
 rpc.close() # Closes the socket 's' also

@@ -21,7 +21,8 @@ class ServerServices(object):
   @request
   def increment(self, obj):
     encoder = GraphEncoder()
-    graph = loads(obj, cls=GraphDecoder)
+    decoder = GraphDecoder()
+    graph = decoder.object_hook(obj)
     graph.increment()
     return dumps(encoder.default(graph))
 
